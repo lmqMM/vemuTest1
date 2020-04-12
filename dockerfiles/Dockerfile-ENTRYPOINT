@@ -1,0 +1,4 @@
+FROM sdn/ubuntu
+COPY ["script.sh", "."]
+ENTRYPOINT ["/bin/bash", "script.sh"]
+CMD ["www.swunix.com"]

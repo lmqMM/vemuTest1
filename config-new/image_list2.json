@@ -1,0 +1,29 @@
+{
+  "controllers": [
+    {
+      "id": "floodlight",
+      "image_name": "controller/floodlight",
+      "type": "controller",
+      "subtype": "floodlight",
+      "virtualization": "docker",
+      "node-type": "controller"
+    }
+  ],
+  "routers": [
+    {
+      "id": "quagga",
+      "image_name": "router/rip",
+      "type": "router",
+      "virtualization": "Docker",
+      "interfaces": [
+        {
+          "name": "",
+          "ip": "",
+          "netmask": "",
+          "gateway": ""
+        }
+      ],
+      "node-type": "router"
+    }
+  ]
+}

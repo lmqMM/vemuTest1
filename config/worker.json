@@ -1,0 +1,5 @@
+{
+  "api-port": 5678,
+  "deploy-topology-api": "/api/topology/deploy",
+  "deploy-application-api": "/api/application/deploy"
+}

@@ -1,0 +1,6 @@
+{
+  "server-protocol": "http",
+  "server-port": 5000,
+  "topology-folder": "topo",
+  "application-folder": "apps"
+}

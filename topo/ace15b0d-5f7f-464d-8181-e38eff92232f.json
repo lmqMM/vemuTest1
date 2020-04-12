@@ -1,0 +1,145 @@
+{
+  "name": "ace15b0d-5f7f-464d-8181-e38eff92232f",
+  "status": "STATUS_SAVED",
+  "controllers": {},
+  "switches": {
+    "s1": {
+      "name": "s1",
+      "switchType": "ovs",
+      "subType": "ovs",
+      "host": {
+        "qos": ""
+      },
+      "interfaces": {
+        "intname": ""
+      },
+      "image": "undefined"
+    }
+  },
+  "hosts": {
+    "h1": {
+      "name": "h1",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "virtualization": "docker",
+      "interfaces": {
+        "name": "h1s1",
+        "ip": "192.168.1.1/24",
+        "netmask": "192.168.1.0"
+      },
+      "configurations": {
+        "config_name": "record_metrics"
+      },
+      "ip": "192.168.1.1/24",
+      "x": 377,
+      "y": 258,
+      "image": "undefined"
+    }
+  },
+  "vnfs": {
+    "apache1": {
+      "name": "apache1",
+      "nodeType": "vnf",
+      "vnfType": "apache",
+      "subType": "apache",
+      "x": 193,
+      "y": 450,
+      "image": "undefined"
+    },
+    "firewall2": {
+      "name": "firewall2",
+      "nodeType": "vnf",
+      "vnfType": "firewall",
+      "subType": "firewall",
+      "x": 57,
+      "y": 329,
+      "image": "undefined"
+    },
+    "dns3": {
+      "name": "dns3",
+      "nodeType": "vnf",
+      "vnfType": "dns",
+      "subType": "dns",
+      "x": 475,
+      "y": 134,
+      "image": "undefined"
+    }
+  },
+  "routers": {
+    "quagga1": {
+      "name": "quagga1",
+      "nodeType": "router",
+      "routerType": "quagga",
+      "subType": "quagga",
+      "x": 117,
+      "y": 226,
+      "interfaces": {
+        "name": "quagga1firewall2"
+      },
+      "image": "undefined"
+    }
+  },
+  "links": {
+    "l1": {
+      "name": "l1",
+      "source": "apache1",
+      "sourceType": "vnf",
+      "target": "quagga1",
+      "targetType": "router",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l2": {
+      "name": "l2",
+      "source": "h1",
+      "sourceType": "host",
+      "target": "s1",
+      "targetType": "undefined",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l3": {
+      "name": "l3",
+      "source": "s1",
+      "sourceType": "undefined",
+      "target": "quagga1",
+      "targetType": "router",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l4": {
+      "name": "l4",
+      "source": "quagga1",
+      "sourceType": "router",
+      "target": "firewall2",
+      "targetType": "vnf",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l5": {
+      "name": "l5",
+      "source": "dns3",
+      "sourceType": "vnf",
+      "target": "s1",
+      "targetType": "undefined",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    }
+  }
+}

@@ -1,0 +1,194 @@
+@charset "UTF-8";
+.demo {
+    /* for IE10+ touch devices */
+    touch-action:none;
+}
+
+body {
+    padding:10px;
+    margin:10px;
+    margin: auto;
+	width: 100%;
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-family: serif, sans-serif; */
+    background-color: white;
+    /* font-size: 12px; */
+}
+
+.content_block{
+	width: 74%;
+	overflow: hidden;
+	float: right;
+	/* border-style: solid; */
+	/* border-width: 2px; */
+	/* border-color: gray; */
+	/* background-image: url("../img/bg_main.jpg"); */
+	background-repeat: repeat-x;
+}
+
+.sidebar{
+	width: 24%;
+	float: left;
+	overflow: hidden;
+}
+
+.gallery{
+	padding-top: 25px; 
+	padding-left: 15px;
+	/* padding-right: 15px;
+ 	padding-bottom: 5px; */
+    position: absolute;
+    /* z-index: 4; */
+    width: 100%;
+    height: 45px;
+    /* border: 1px solid #2e6f9a; */
+    text-align: left;
+    /* background-color: #5c96bc; */
+    /* color: white; */
+    box-shadow: 2px 2px 19px #cacaca;
+    -o-box-shadow: 2px 2px 19px #cacaca;
+    -webkit-box-shadow: 2px 2px 19px #cacaca;
+    -moz-box-shadow: 2px 2px 19px #cacaca;
+    -moz-border-radius: 8px;
+    /* border-radius: 8px; */
+    opacity: 0.8;
+    cursor: move;
+    background-color: white;
+    font-size: 13px;
+    -webkit-transition: background-color 0.25s ease-in;
+    -moz-transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+}
+
+#canvas {
+	position: relative;
+	width: 100%;
+	background-color: white;
+	overflow: auto;
+	height: 900px;
+	text-align: center;
+}
+
+.heading{
+	padding-top: 5px; 
+	padding-left: 15px;
+	padding-right: 15px;
+ 	padding-bottom: 5px;
+ 	
+	width: 100%;
+	color:white;
+	background-color: gray;
+}
+
+.node, .network{
+    padding: 5px;
+    position: absolute;
+    z-index: 4;
+    /* border: 1px solid #2e6f9a; */
+    box-shadow: 2px 2px 19px #e0e0e0;
+    -o-box-shadow: 2px 2px 19px #e0e0e0;
+    -webkit-box-shadow: 2px 2px 19px #e0e0e0;
+    -moz-box-shadow: 2px 2px 19px #e0e0e0;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    opacity: 0.8;
+    cursor: move;
+    background-color: white;
+    font-size: 11px;
+    -webkit-transition: background-color 0.25s ease-in;
+    -moz-transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+}
+
+.network{
+    background-color: #f4efff;
+    width: 60px;
+    height: 60px;
+}
+
+.node img, .network img{
+	width: 70%;
+}
+
+.node:hover, .network:hover {
+    background-color: #5c96bc;
+    color: white;
+
+}z
+
+.aLabel {
+    -webkit-transition: background-color 0.25s ease-in;
+    -moz-transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+}
+
+.aLabel.jtk-hover, .jtk-source-hover, .jtk-target-hover {
+    background-color: #1e8151;
+    color: white;
+}
+
+.aLabel {
+    background-color: white;
+    opacity: 0.8;
+    padding: 0.3em;
+    border-radius: 0.5em;
+    border: 1px solid #346789;
+    cursor: pointer;
+}
+
+.linker {
+    position: absolute;
+    top: 10%;
+    right: 3px;
+    width: 1em;
+    height: 1em;
+    background-color: whitesmoke;
+    cursor: pointer;
+    box-shadow: 0 0 2px black;
+    -webkit-transition: -webkit-box-shadow 0.25s ease-in;
+    -moz-transition: -moz-box-shadow 0.25s ease-in;
+    transition: box-shadow 0.25s ease-in;
+}
+
+.linker:hover {
+    box-shadow: 0 0 6px black;
+}
+
+.statemachine-demo .jtk-endpoint {
+    z-index: 3;
+}
+
+#opened {
+    left: 10em;
+    top: 5em;
+}
+
+#phone1 {
+    left: 35em;
+    top: 12em;
+    width: 7em;
+}
+
+#inperson {
+    left: 12em;
+    top: 23em;
+}
+
+#phone2 {
+    left: 28em;
+    top: 24em;
+}
+
+#rejected {
+    left: 10em;
+    top: 35em;
+}
+
+.dragHover {
+    border: 2px solid orange;
+}
+
+path, .jtk-endpoint { cursor:pointer; }

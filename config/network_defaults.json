@@ -1,0 +1,55 @@
+{
+  "controller-defaults": {
+    "controller-type":"Floodlight",
+    "ip":"127.0.0.1",
+    "encryption":false
+  },
+  "host-defaults": {
+    "host-type":"ubuntu",
+    "ip-base":"192.168.1.1",
+    "ip-prefix":24,
+    "image":"client",
+    "virtualization": "docker",
+    "netmask": "192.168.1.0",
+    "configurations": [
+      {
+        "config_name": "record_metrics",
+        "config_value": true
+      },
+      {
+        "config_name": "record_interval",
+        "default_value": 5
+      }
+    ]
+  },
+  "server-defaults": {
+    "host-type":"apache",
+    "ip-base":"192.168.1.1",
+    "ip-prefix":24,
+    "virtualization": "docker",
+    "netmask": "192.168.1.0",
+    "domainName": "a.b.com"
+  },
+  "switch-defaults": {
+    "switch-type":"ovs",
+    "of-protocol":"1.3",
+    "qos": "",
+    "intname": ""
+  },
+  "router-defaults": {
+    "router-type": "quagga",
+    "ip": "192.168.10.1",
+    "netmask": "255.255.255.0"
+  },
+  "vnf-defaults": {
+    "vnf-type": "web1",
+    "domainName": "a.c.com",
+    "ip": "192.168.3.1",
+    "netmask": "255.255.255.0",
+    "gateway": "192.168.3.1"
+  },
+  "link-defaults":{
+    "bandwidth": "100Mbps",
+    "delay": "10us"
+  }
+}

@@ -1,0 +1,16 @@
+[
+{
+  "imageName":"ubuntu",
+   "imageType":"host",
+   "subType":"ubuntu",
+   "virtualization":"Docker"
+},
+{
+   "imageName":"floodlight",
+   "imageType":"controller",
+   "subType":"floodlight",
+   "virtualization":"Docker"
+}
+]
+
+

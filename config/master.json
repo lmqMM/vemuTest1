@@ -1,0 +1,12 @@
+{
+  "gui-port": 8080,
+  "api-port": 5000,
+
+  "register-worker-api": "/api/worker/register",
+
+  "save-topology-api": "/api/topology/save",
+  "delete-topology-api": "",
+  "slice-topology-api": "/api/topology/slice",
+  "bulk-deploy-topology-api": "/api/topology/bulk-deploy",
+  "bulk-deploy-application-api": "/api/application/bulk-deploy"
+}

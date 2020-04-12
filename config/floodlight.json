@@ -1,0 +1,6 @@
+{
+   "imageName":"floodlight",
+   "imageType":"controller",
+   "subType":"floodlight",
+   "virtualization":"Docker"
+}

@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "Field": "name",
+      "Value": "shaper1"
+    },
+    {
+      "Field": "received_packets(pktnum)",
+      "Value": "2000"
+    },
+    {
+      "Field": "dropped_packets(pktnum)",
+      "Value": "483"
+    },
+    {
+      "Field": "loss_rate(%)",
+      "Value": "24.150000"
+    },
+    {
+      "Field": "average_delay(ms)",
+      "Value": "18.085850"
+    },
+    {
+      "Field": "average_interval(ms)",
+      "Value": "0.783668"
+    },
+    {
+      "Field": "interval_variance(enlarge mega)",
+      "Value": "310.608594"
+    },
+    {
+      "Field": "Note",
+      "Value": "Please enter docker to see more statistical"
+    }
+  ]
+}

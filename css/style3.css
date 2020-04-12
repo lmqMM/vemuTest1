@@ -1,0 +1,179 @@
+@CHARSET "UTF-8";
+
+.entities
+{
+	position: relative;
+	background: #B0C4DE;
+
+	height: 35px;
+	width: 400px;
+
+	left: 5%;
+	
+}
+
+/*以下为实体功能图表*/
+.entities-edit
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/edit.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	right: 3%;
+	top: 20%;
+}
+
+.entities-delete
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/delete.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	right: 11%;
+	top: 20%;
+}
+/**/
+
+/* 以下为节点图表 */
+.entities-img-ubuntu
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/ubuntu.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-ovs
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/ovs.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-floodlight
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/floodlight.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-quagga
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/quagga.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-apache
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/apache.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-nginx
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/nginx.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-firewall
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/firewall.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-shaper
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/shaper.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-dns
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/dns.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+
+.entities-img-dhcp
+{
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/dhcp.png');
+	background-size: 100% 100%;
+
+	position: absolute;
+	left: 3%;
+	top: 20%;
+}
+/**/
+
+.entities-name
+{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+}
+
+.search-windows
+{
+	position: relative;
+	float: left;
+	z-index: 1;
+	width: 100%;
+
+	background-size: 100% 100%;
+	background-color: #ffffff;
+}

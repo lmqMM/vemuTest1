@@ -1,0 +1,7 @@
+FROM sdn/ubuntu
+RUN apt-get install -y wget curl python python-pip
+RUN pip install numpy
+COPY ["launch.sh", "."]
+COPY ["web-app-python-client.py", "."]
+COPY ["web-app-python-server.py", "."]
+COPY ["index.html", "."]

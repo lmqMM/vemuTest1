@@ -1,0 +1,2 @@
+FROM sdn/ubuntu
+COPY ["launch.sh", "."]

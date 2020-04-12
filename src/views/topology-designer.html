@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<meta charset="UTF-8">
+		<title>TopoStack</title>
+		
+<!--		<link rel="stylesheet" type="text/css" href="../../themes/gray/easyui.css">-->
+		<link rel="stylesheet" type="text/css" href="../../themes/gray/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="../..//css/topology-style.css">
+		
+		<script type="text/javascript" src="../../libs/jquery.min.js"></script>
+		<script type="text/javascript" src="../../libs/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../libs/jsplumb.min.js"></script>
+		<script type="text/javascript" src="../../libs/highcharts/js/highcharts.js"></script>
+
+
+<!--		<script type="text/javascript" src="../../scripts/utils.js"></script>-->
+<!--		<script type="text/javascript" src="../../scripts/topology-model.js"></script>-->
+<!--		<script type="text/javascript" src="../../scripts/topology-templates.js"></script>-->
+<!--		<script type="text/javascript" src="../../scripts/topology-visual.js"></script>-->
+<!--		<script type="text/javascript" src="../../scripts/topology-tools.js"></script>-->
+<!--		<script type="text/javascript" src="../../scripts/topology-designer.js"></script>-->
+<!--		<script type="text/javascript" src="../../scripts/topology-charts.js"></script>-->
+
+		<script type="text/javascript" src="../controller/entity-lists.js"></script>
+		<script type="text/javascript" src="../controller/topology.js"></script>
+		<script type="text/javascript" src="../modules/network.js"></script>
+		<script type="text/javascript" src="../modules/topology.js"></script>
+
+	</head>
+	
+	<body>
+		<div class="sidebar">
+			<div class="easyui-accordion" style="width:100%;height:300px">
+				<div title="Controller Default Settings" data-options="iconCls:'icon-ok'" style="overflow:auto">
+					<table id="controller-defaults" class="easyui-propertygrid" style="width:100%" data-options="
+						
+						showGroup:false,
+						showHeader:false,
+						scrollbarSize:0
+						">
+					</table>
+				</div>
+					
+				<div title="Switch Default Settings" data-options="iconCls:'icon-help'">
+			 		<table id="switch-defaults" class="easyui-propertygrid" style="width:100%" data-options="
+						
+						showGroup:false,
+						showHeader:false,
+						scrollbarSize:0
+						">
+					</table>
+				</div>
+				
+				<div title="Host Default Settings" data-options="iconCls:'icon-help'">
+			 		<table id="host-defaults" class="easyui-propertygrid" style="width:100%" data-options="
+						
+						showGroup:false,
+						showHeader:false,
+						scrollbarSize:0
+						">
+					</table>
+				</div>
+
+				<div title="Link Default Settings" data-options="iconCls:'icon-help'">
+			 		<table id="link-defaults" class="easyui-propertygrid" style="width:100%" data-options="
+
+						showGroup:false,
+						showHeader:false,
+						scrollbarSize:0
+						">
+					</table>
+				</div>
+				
+			</div>
+			
+			<div style="margin:10px 0;"></div>
+			
+			<div class="easyui-tabs" style="width:100%;height:300px">
+				
+				
+				<div title="Switches">
+					<table id="switch-datagrid" class="easyui-datagrid" title="" style="width:100%;height:250px"
+						data-options="singleSelect:true,collapsible:true,method:'get'">
+						<thead>
+							<tr>
+								<th data-options="field:'name',width:80">Name</th>
+								<th data-options="field:'switchType',width:80">Type</th>
+								<th data-options="field:'ofProtocol',width:80">OpenFlow</th>
+								<th data-options="field:'delete',width:70,formatter:removeSwitchBtn" align="center">Delete</th>
+
+
+							</tr>
+						</thead>
+					</table>
+				</div>
+				
+				<div title="Hosts">
+					<table id="host-datagrid" class="easyui-datagrid" title="" style="width:100%;height:250px"
+						data-options="singleSelect:true,collapsible:true,method:'get'">
+						<thead>
+							<tr>
+								<th data-options="field:'name',width:80">Name</th>
+								<th data-options="field:'hostType',width:80">Type</th>
+								<th data-options="field:'ip',width:80">IP</th>
+								<th data-options="field:'delete',width:70,formatter:removeHostBtn" align="center">Delete</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				
+				<div title="Controllers">
+					<table id="controller-datagrid" class="easyui-datagrid" title="" style="width:100%;height:250px"
+						data-options="singleSelect:true,collapsible:true,method:'get'">
+						<thead>
+							<tr>
+								<th data-options="field:'name',width:80">Name</th>
+								<th data-options="field:'controllerType',width:80">Type</th>
+								<th data-options="field:'ip',width:80">IP</th>
+								<th data-options="field:'port',width:80">Port</th>
+								<th data-options="field:'delete',width:70,formatter:removeControllerBtn" align="center">Delete</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			
+			<div style="margin:10px 0;"></div>
+			
+			<table id="topology-datagrid" class="easyui-datagrid" title="Topologies" style="width:100%;height:250px"
+				data-options="singleSelect:true,rownumbers:true,collapsible:true,url:'../topo/topo-list.json',method:'get'">
+				<thead>
+					<tr>
+						<th data-options="field:'topology-file',width:160" align="center">Topology File</th>
+						<th data-options="field:'topology-status',width:70" align="center">Status</th>
+						<th data-options="field:'topology-preview',width:70,formatter:previewTopologyButton" align="center">Preview</th>
+						<th data-options="field:'topology-load',width:70,formatter:loadTopologyButton" align="center">Load</th>
+						<th data-options="field:'topology-delete',width:70,formatter:deleteTopologyButton" align="center">Delete</th>
+
+					</tr>
+				</thead>
+			</table>
+		</div>
+	
+		<div class="content_block">
+			
+			<div id="p" class="easyui-panel" title="Topology Designer" style="width:100%;height:1000px">
+
+				<a href="javascript:void(0)" class="easyui-menubutton" data-options="menu:'#topology-menu',iconCls:'icon-file'">Topology</a>
+				<div id="topology-menu" style="width:250px;">
+					<div data-options="iconCls:'icon-save'">New Topology</div>
+					<div data-options="iconCls:'icon-save'">Save Topology</div>
+					<div data-options="iconCls:'icon-download'">Deploy Topology</div>
+					<div data-options="iconCls:'icon-download'">Save & Deploy Changes</div>
+					<div data-options="iconCls:'icon-remove'">Undeploy Topology</div>
+					<div data-options="iconCls:'icon-remove'">Delete Topology</div>
+				</div>
+
+				<a href="javascript:void(0)" class="easyui-menubutton" data-options="menu:'#application-menu',iconCls:'icon-file'">Application</a>
+				<div id="application-menu" style="width:250px;">
+					<div id="new-app" data-options="iconCls:'icon-save'">New Application</div>
+					<div data-options="iconCls:'icon-save'">Save Application</div>
+					<div data-options="iconCls:'icon-download'">Deploy Application</div>
+					<div data-options="iconCls:'icon-remove'">Undeploy Application</div>
+					<div data-options="iconCls:'icon-remove'">Delete Application</div>
+				</div>
+
+
+				<div style="padding:5px; margin-left:5px; margin-right:5px;">
+					<!-- <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">Add</a> -->
+
+					<a href="#" id="save-topology" class="easyui-linkbutton" data-options="iconCls:'icon-save'">Save Toplogy</a>
+					<a href="#" id="deploy-topology" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">Deploy Toplogy</a>
+					<a href="#" id="increment-deploy" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">Incremental Deployment</a>
+					<a href="#" id="undeploy-topology" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">Undeploy Toplogy</a>
+					<a href="#" id="test" class="easyui-linkbutton" data-options="iconCls:'icon-save'">Test</a>
+					<!-- <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',disabled:true">Cut</a> -->
+					<!-- <a href="#" class="easyui-linkbutton">Text Button</a> -->
+					<a href="#" id="data-topology" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">Data Statistics</a>
+				</div>
+				
+				<div id="canvas" style="width:100%;height:95%">
+<!--					<div class="gallery" style="left:0%;width:100%">Networks</div>-->
+<!--					<div class="network dragger" id="lan" node-type="lan" style="left:100px;top:70px"><img src="../img/lan.png"/><br>LAN</div>-->
+<!--					<div class="network dragger" id="wan" node-type="lan" style="left:200px;top:70px"><img src="../img/wan.png"/><br>WAN</div>-->
+<!--					<div class="network dragger" id="dcn" node-type="lan" style="left:300px;top:70px"><img src="../img/dcn.png"/><br>DCN</div>-->
+					<div class="gallery" style="left:0%;width:100%">Nodes</div>
+
+
+					<div class="node template" id="template" node-type="template" style="left:100px;top:5px"><img src="../img/topology.png"/><br>Templates</div>
+<!--					<div class="node dragger" id="controller" node-type="controller" style="left:200px;top:5px"><img src="../img/controller.png"/><br>Controller</div>-->
+<!--					<div class="node dragger" id="switch" node-type="switch" style="left:300px;top:5px"><img src="../img/switch.png"/><br>Switch</div>-->
+<!--					<div class="node dragger" id="host" node-type="host" style="left:400px;top:5px"><img src="../img/host.png"/><br>Host</div>-->
+<!--					<div class="node dragger" id="cpu" node-type="host" style="left:500px;top:5px"><img src="../img/cpu.png"/><br>CPU</div>-->
+				</div>
+				
+
+
+
+				
+			</div>
+			
+		</div>
+
+
+		<div id="application-templates" class="easyui-window" title="Application Templates" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:500px;">
+			<div class="easyui-tabs" style="width:100%;height:100%">
+
+
+				<div title="Web Application">
+					<div class="easyui-panel" style="width:100%;height:100%;padding:10px">
+						<div style="margin-bottom:20px">
+							Servers: <input class="easyui-textbox" id="web-app-servers" data-options="prompt:'server nodes, separated by commas: h1, h2',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%" value="h2">
+						</div>
+
+						<div style="margin-bottom:20px">
+							Server Script: <input class="easyui-textbox" id="web-app-server-script" data-options="prompt:'server script',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%" value="python3 -m http.server 80">
+						</div>
+
+						<div style="margin-bottom:20px">
+							Clients: <input class="easyui-textbox" id="web-app-clients" data-options="prompt:'server nodes, separated by commas: h3, h4',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%" value="h1,h3,h4">
+						</div>
+
+						<div style="margin-bottom:20px">
+							Client Script: <input class="easyui-textbox" id="web-app-client-script" data-options="prompt:'client script',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%" value="python3 web-app-python-client.py --url=http://192.168.1.2">
+						</div>
+
+						<div>
+							<a href="#" id="web-app-deploy" class="easyui-linkbutton" iconCls="icon-ok" style="width:20%;height:32px">Deploy</a>
+							<a href="#" id="web-app-cancel" class="easyui-linkbutton" iconCls="icon-cancel" style="width:20%;height:32px">Cancel</a>
+						</div>
+
+						<div>
+
+						</div>
+					</div>
+				</div>
+
+				<div title="AI Application">
+
+				</div>
+
+				<div title="SFC Application">
+
+				</div>
+			</div>
+		</div>
+
+		<div id="topology-templates" class="easyui-window" title="Topology Templates" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:300px;">
+			<div class="easyui-tabs" style="width:100%;height:100%">
+
+
+				<div title="Tree">
+					<div class="easyui-panel" style="width:100%;height:100%;padding:10px">
+						<div style="margin-bottom:20px">
+							Depths: <input class="easyui-textbox" id="tree-depths" data-options="prompt:'integer, the depths of the tree',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%">
+						</div>
+						<div style="margin-bottom:20px">
+							Branches: <input class="easyui-textbox" id="tree-branches" data-options="prompt:'integer, branches of a switch',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%">
+						</div>
+						<div style="margin-bottom:20px">
+							Host Density: <input class="easyui-textbox" id="tree-density" data-options="prompt:'integer, hosts connected to a leaf switch',validType:'number'" style="position:absolute;width:50%;height:32px;left:20%">
+						</div>
+
+
+						<div>
+							<a href="#" id="tree-ok" class="easyui-linkbutton" iconCls="icon-ok" style="width:20%;height:32px">OK</a>
+							<a href="#" id="tree-cancel" class="easyui-linkbutton" iconCls="icon-cancel" style="width:20%;height:32px">Cancel</a>
+						</div>
+
+						<div>
+
+						</div>
+					</div>
+				</div>
+
+				<div title="Fat-Tree">
+
+				</div>
+
+				<div title="Linear">
+
+				</div>
+
+				<div title="Ring">
+
+				</div>
+
+				<div title="Mesh">
+
+				</div>
+
+				<!-- <div title="Controllers" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+					This is the help content.
+				</div> -->
+			</div>
+		</div>
+
+		<!--<div id="node-menu" class="easyui-menu" data-options="onClick:nodeMenuHandler" style="width:120px;">-->
+		<div id="node-menu" class="easyui-menu" style="width:120px;">
+			<div data-options="id:'edit-node',name:'edit',iconCls:'icon-edit'">Edit</div>
+			<div data-options="id:'delete-node',name:'delete',iconCls:'icon-remove'">Delete</div>
+			<!--<div data-options="name:'print',iconCls:'icon-print'">Print</div>-->
+			<div class="menu-sep"></div>
+			<div data-options="name:'exit'">Exit</div>
+		</div>
+
+		<div id="device-interface-selector" class="easyui-window" title="Shaper Interface Selector" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:300px;">
+			<div class="easyui-panel" style="width:100%;height:100%;padding:10px">
+				<p>
+				<h3>Note</h3>
+				A shaper takes in traffic from one interface, conducts shaping, and directs traffic to the other interface. <br>
+				You can conduct shaping from inf1 --> inf2 as well as inf2 --> inf1. Up to you! <br>
+				Every interface of a shaper can connect several other nodes. <br>
+				Please select which interface you would like to connect for shaper <label id="shaper-id" style="color: #ff0000;"></label> . <br>
+				<label>inf1: </label><input name="interface" type="radio" value="inf1"><br>
+				<label>inf2: </label><input name="interface" type="radio" value="inf2"><br>
+				<br>
+				</p>
+				<a href="#" id="interface-select-ok" class="easyui-linkbutton" iconCls="icon-ok" style="width:20%;height:32px">OK</a>
+				<a href="#" id="interface-select-cancel" class="easyui-linkbutton" iconCls="icon-cancel" style="width:20%;height:32px">Cancel</a>
+
+			</div>
+
+		</div>
+
+		<div id="topology-preview-window" class="easyui-window" title="Topology Preview" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:800px;height:600px;">
+			<div id="canvas-preview" style="width:100%;height:95%">
+			</div>
+		</div>
+
+		<div id="topology-show-data-window" class="easyui-window" title="Topology Data Statistics" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:800px;height:600px;">
+<!--			<table id="data-table">-->
+<!--				<tr id="table-body">-->
+<!--					<th>Field</th>-->
+<!--					<th>Value</th>-->
+<!--				</tr>-->
+<!--				<tr></tr>-->
+<!--			</table>-->
+			<div id="data-container">
+
+			</div>
+		</div>
+
+	</body>
+</html>

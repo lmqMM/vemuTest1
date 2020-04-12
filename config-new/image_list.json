@@ -1,0 +1,167 @@
+{
+  "controllers": [
+    {
+      "id": "floodlight",
+      "image_name": "controller/floodlight",
+      "type": "controller",
+      "subtype": "floodlight",
+      "virtualization": "docker",
+      "node-type": "controller"
+    }
+  ],
+  "routers": [
+    {
+      "id": "quagga",
+      "image_name": "router/rip",
+      "type": "router",
+      "virtualization": "Docker",
+      "interfaces": [
+        {
+          "name": "",
+          "ip": "",
+          "netmask": "",
+          "gateway": ""
+        }
+      ],
+      "node-type": "router"
+    }
+  ],
+  "hosts": [
+    {
+      "id": "ubuntu",
+      "image_name": "host/ubuntu",
+      "type": "host",
+      "subtype": "ubuntu",
+      "virtualization": "Docker",
+      "interfaces": [
+        {
+          "name": "",
+          "ip": "",
+          "netmask": "",
+          "gateway": ""
+        }
+      ],
+      "node-type": "host"
+    }
+  ],
+  "switches": [
+    {
+      "id": "ovs",
+      "image_name": "switch/ovs",
+      "type": "switch",
+      "subtype": "ovs",
+      "virtualization": "ovs",
+      "stp": false,
+      "host": [
+        {
+          "host_name": "",
+          "qos": ""
+        }
+      ],
+      "node-type": "switch"
+    }
+  ],
+  "servers": [
+    {
+      "id": "apache",
+      "image_name": "server/apache",
+      "type": "server",
+      "subtype": "apache",
+      "domainName": "a.b.com",
+      "virtualization": "Docker",
+      "interfaces": [
+        {
+          "name": "",
+          "ip": "",
+          "netmask": "",
+          "gateway": ""
+        }
+      ],
+      "node-type": "vnf"
+    },
+    {
+      "id": "nginx",
+      "image_name": "server/nginx",
+      "type": "server",
+      "subtype": "nginx",
+      "virtualization": "Docker",
+      "startegy": "polling/min_conn",
+      "server": [
+        {
+          "server_name": "",
+          "listen": "80",
+          "location": "proxy_pass http://nginx_pools"
+        }
+      ],
+      "nginx_pools": [
+        {
+          "name": "",
+          "ip": "",
+          "port": "80",
+          "weight": "1",
+          "max_fails": "X",
+          "fail_timeout": "X",
+          "backup": "True/Fales"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "",
+          "ip": "",
+          "netmask": "",
+          "gateway": ""
+        }
+      ],
+      "node-type": "vnf"
+    },
+    {
+      "id": "shaper",
+      "image_name": "server/shaper",
+      "type": "server",
+      "subtype": "shaper",
+      "virtualization": "compound",
+      "node-type": "vnf"
+    },
+    {
+      "id": "dns",
+      "image_name": "server/dns",
+      "type": "server",
+      "subtype": "dns",
+      "interfaces": [
+        {
+          "name": "",
+          "ip": "",
+          "netmask": "",
+          "gateway": ""
+        }
+      ],
+      "node-type": "vnf"
+    },
+    {
+      "id": "dhcp",
+      "image_name": "server/dhcp",
+      "type": "server",
+      "subtype": "dhcp",
+      "range": ["192.168.10.3", "192.168.10.100"],
+      "interfaces":[
+        {
+          "name": "",
+          "ip": "192.168.10.2",
+          "netmask": "255.255.255.0",
+          "gateway": "192.168.10.1"
+        }
+      ],
+      "default-lease-time": "21600",
+      "max-lease-time": "43200",
+      "node-type": "vnf"
+    },
+    {
+      "id": "firewall",
+      "image_name": "server/firewall",
+      "type": "server",
+      "subtype": "firewall",
+      "virtualization": "docker",
+      "node-type": "vnf"
+    }
+  ]
+}

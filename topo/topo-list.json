@@ -1,0 +1,14 @@
+{
+  "rows": [
+    {
+      "topology-file": "topo1.json",
+      "topology-url": "../topo/topo1.json",
+      "topology-status": "SAVED"
+    },
+    {
+      "topology-file": "topo2.json",
+      "topology-url": "../topo/topo2.json",
+      "topology-status": "SAVED"
+    }
+  ]
+}

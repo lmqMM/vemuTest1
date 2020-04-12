@@ -1,0 +1,83 @@
+{
+  "name": "62db3da9-7de8-4683-848c-9b0f21575365",
+  "status": "STATUS_SAVED",
+  "controllers": {},
+  "vnfs": {
+    "shaper1": {
+      "name": "shaper1",
+      "nodeType": "vnf",
+      "vnfType": "shaper",
+      "subType": "shaper",
+      "x": 570,
+      "y": 280
+    }
+  },
+  "hosts": {
+    "h1": {
+      "name": "h1",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.1/24",
+      "x": 278,
+      "y": 132
+    },
+    "h2": {
+      "name": "h2",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.2/24",
+      "x": 297,
+      "y": 263
+    },
+    "h3": {
+      "name": "h3",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.3/24",
+      "x": 281,
+      "y": 436
+    },
+    "h4": {
+      "name": "h4",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.4/24",
+      "x": 892,
+      "y": 283
+    }
+  },
+  "links": {
+    "l1": {
+      "name": "l1",
+      "source": "h1",
+      "sourceType": "ubuntu",
+      "target": "shaper1",
+      "targetType": "shaper"
+    },
+    "l2": {
+      "name": "l2",
+      "source": "h2",
+      "sourceType": "ubuntu",
+      "target": "shaper1",
+      "targetType": "shaper"
+    },
+    "l3": {
+      "name": "l3",
+      "source": "h3",
+      "sourceType": "ubuntu",
+      "target": "shaper1",
+      "targetType": "shaper"
+    },
+    "l4": {
+      "name": "l4",
+      "source": "shaper1",
+      "sourceType": "shaper",
+      "target": "h4",
+      "targetType": "ubuntu"
+    }
+  }
+}

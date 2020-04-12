@@ -1,0 +1,109 @@
+{
+    "hosts":[
+        {
+            "id":"ubuntu",
+            "label":"Ubuntu",
+            "virtualization":"docker",
+            "image":"host/ubuntu",
+            "node-type":"host",
+            "description":"Ubuntu is open source operating system.",
+            "icon":"ubuntu.png"
+        }
+    ],
+    "servers": [
+        {
+            "id":"apache",
+            "label":"Apache HTTP Server",
+            "virtualization":"docker",
+            "image":"host/apache",
+            "node-type":"host",
+            "description":"Apache HTTP Server is open source Web server.",
+            "icon":"apache.png"
+        }
+    ],
+
+    "switches":[
+        {
+            "id":"ovs",
+            "label":"Open vSwitch",
+            "virtualization":"ovs",
+            "image":"",
+            "node-type":"switch",
+            "description":"OVS is open source virtual switch.",
+            "icon":"ovs.png"
+        }
+    ], 
+
+    "routers":[
+        {
+            "id":"quagga",
+            "label":"Quagga",
+            "virtualization":"docker",
+            "image":"router/quagga",
+            "node-type":"router",
+            "description":"Quagga is open source software router.",
+            "icon":"quagga.png"
+        }
+    ], 
+
+    "controllers":[
+        {
+            "id":"floodlight", 
+            "label":"Floodlight", 
+            "virtualization":"docker",
+            "image":"controller/floodlight",
+            "node-type":"controller",
+            "description":"Floodlight is open source SDN controller.",
+            "icon":"floodlight.png"
+        }, 
+        {
+            "id":"odl", 
+            "label":"Open Daylight", 
+            "virtualization":"docker",
+            "image":"controllers/odl",
+            "node-type":"controller",
+            "description":"Open Daylight is open source SDN controller.",
+            "icon":"odl.png"
+        }, 
+        {
+            "id":"onos", 
+            "label":"ONOS", 
+            "virtualization":"docker",
+            "image":"controllers/onos",
+            "node-type":"controller",
+            "description":"ONOS is open source SDN controller.",
+            "icon":"onos.png"
+            
+        }
+    ], 
+	
+	"vnfs":[
+		{
+            "id":"firewall", 
+            "label":"Firewall", 
+            "virtualization":"docker",
+            "image":"vnf/firewall",
+            "node-type":"vnf",
+            "description":"Firewall is for security.",
+            "icon":"firewall.png"
+		}, 
+		{
+            "id":"shaper", 
+            "label":"Shaper", 
+            "virtualization":"docker",
+            "image":"vnf/shaper",
+            "node-type":"vnf",
+            "description":"Shaper is for traffic shaping.",
+            "icon":"Shaper.png"
+		}, 
+        {
+            "id":"nginx",
+            "label":"Nginx",
+            "virtualization":"docker",
+            "image":"vnf/nginx",
+            "node-type":"vnf",
+            "description":"Nginx is open source Web server and reserve proxy.",
+            "icon":"nginx.png"
+        }
+	]
+}

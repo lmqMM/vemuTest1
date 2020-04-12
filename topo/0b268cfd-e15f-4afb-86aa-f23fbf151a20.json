@@ -1,0 +1,156 @@
+{
+  "name": "0b268cfd-e15f-4afb-86aa-f23fbf151a20",
+  "status": "STATUS_SAVED",
+  "controllers": {},
+  "switches": {
+    "s1": {
+      "name": "s1",
+      "switchType": "ovs",
+      "subType": "ovs",
+      "host": {
+        "qos": ""
+      },
+      "interfaces": {
+        "intname": ""
+      },
+      "image": "undefined"
+    }
+  },
+  "hosts": {
+    "h1": {
+      "name": "h1",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "virtualization": "docker",
+      "interfaces": {
+        "name": "ubuntu",
+        "ip": "192.168.1.1/24",
+        "netmask": "192.168.1.0"
+      },
+      "configurations": {
+        "config_name": "record_metrics"
+      },
+      "ip": "192.168.1.1/24",
+      "x": 244,
+      "y": 382,
+      "image": "undefined"
+    },
+    "h2": {
+      "name": "h2",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "virtualization": "docker",
+      "interfaces": {
+        "name": "ubuntu",
+        "ip": "192.168.1.2/24",
+        "netmask": "192.168.1.0"
+      },
+      "configurations": {
+        "config_name": "record_metrics"
+      },
+      "ip": "192.168.1.2/24",
+      "x": 115,
+      "y": 192,
+      "image": "undefined"
+    }
+  },
+  "vnfs": {
+    "nginx1": {
+      "name": "nginx1",
+      "nodeType": "vnf",
+      "vnfType": "nginx",
+      "subType": "nginx",
+      "x": 367,
+      "y": 161,
+      "image": "undefined"
+    },
+    "shaper2": {
+      "name": "shaper2",
+      "nodeType": "vnf",
+      "vnfType": "shaper",
+      "subType": "shaper",
+      "x": 603,
+      "y": 255,
+      "image": "undefined"
+    }
+  },
+  "servers": {},
+  "routers": {
+    "quagga1": {
+      "name": "quagga1",
+      "nodeType": "router",
+      "routerType": "quagga",
+      "subType": "quagga",
+      "x": 296,
+      "y": 257,
+      "interfaces": {
+        "name": "quagga1s1"
+      },
+      "image": "undefined"
+    }
+  },
+  "links": {
+    "l1": {
+      "name": "l1",
+      "source": "h1",
+      "sourceType": "host",
+      "target": "quagga1",
+      "targetType": "router",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l2": {
+      "name": "l2",
+      "source": "h2",
+      "sourceType": "host",
+      "target": "quagga1",
+      "targetType": "router",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l3": {
+      "name": "l3",
+      "source": "nginx1",
+      "sourceType": "vnf",
+      "target": "quagga1",
+      "targetType": "router",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l4": {
+      "name": "l4",
+      "source": "quagga1",
+      "sourceType": "router",
+      "target": "s1",
+      "targetType": "undefined",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    },
+    "l5": {
+      "name": "l5",
+      "source": "s1",
+      "sourceType": "undefined",
+      "target": "shaper2",
+      "targetType": "vnf",
+      "delay": "",
+      "jitter": "",
+      "max_bandwidth": "",
+      "burst": "",
+      "latency": ""
+    }
+  }
+}

@@ -1,0 +1,6 @@
+FROM topostack/host
+COPY ["launch.sh", "."]
+COPY ["web-app-python-client.py", "."]
+COPY ["web-app-python-server.py", "."]
+COPY ["index.html", "."]
+

@@ -1,0 +1,70 @@
+{
+  "controllers": [
+    {
+      "id": "floodlight",
+      "label": "floodlight:latest",
+      "virtualization": "docker",
+      "image": "controller/floodlight",
+      "node-type": "controller"
+    }
+  ],
+  "hosts": [
+    {
+      "id": "ubuntu",
+      "label": "ubuntu:latest",
+      "virtualization": "docker",
+      "image": "topostack/host",
+      "node-type": "host"
+    }
+  ],
+  "servers": [
+    {
+      "id": "apache",
+      "label": "apache:latest",
+      "virtualization": "docker",
+      "image": "topostack/host",
+      "node-type": "server"
+    }
+  ],
+  "routers": [
+    {
+      "id": "quagga",
+      "label": "quagga:latest",
+      "virtualization": "docker",
+      "image": "router/quagga",
+      "node-type": "router"
+    }
+  ],
+  "vnfs": [
+    {
+      "id": "firewall",
+      "label": "firewall:latest",
+      "virtualization": "docker",
+      "image": "vnf/firewall",
+      "node-type": "vnf"
+    },
+    {
+      "id": "nginx",
+      "label": "nginx:latest",
+      "virtualization": "docker",
+      "image": "vnf/nginx",
+      "node-type": "vnf"
+    },
+    {
+      "id": "shaper",
+      "label": "shaper:latest",
+      "virtualization": "compound",
+      "image": "vnf/shaper",
+      "node-type": "vnf"
+    }
+  ],
+  "switches": [
+    {
+      "id": "ovs",
+      "label": "Open vSwitch",
+      "virtualization": "ovs",
+      "image": "",
+      "node-type": "switch"
+    }
+  ]
+}

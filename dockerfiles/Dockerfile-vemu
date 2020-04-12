@@ -1,0 +1,10 @@
+FROM ubuntu/init
+
+RUN apt-get update
+RUN apt-get install net-tools iputils-ping curl tcpdump iproute2 openvswitch-common openvswitch-switch iperf3 python3-numpy -y
+RUN apt-get clean
+COPY ["launch.sh", "."]
+COPY ["web-app-python-client.py", "."]
+COPY ["web-app-python-server.py", "."]
+COPY ["index.html", "."]
+CMD ["echo","Image created"]

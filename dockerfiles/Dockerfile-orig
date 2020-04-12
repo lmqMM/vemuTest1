@@ -1,0 +1,7 @@
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y net-tools iputils-ping wget curl tcpdump
+COPY ["launch.sh", "."]
+COPY ["web-app-python-client.py", "."]
+COPY ["web-app-python-server.py", "."]
+COPY ["index.html", "."]

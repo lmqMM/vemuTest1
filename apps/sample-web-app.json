@@ -1,0 +1,34 @@
+{
+  "app-name": "sample-web-app",
+  "app-desc": "a simple web application consisting of servers and clients.",
+  "app-type": "web-app",
+  "server-side": {
+    "type": "independent",
+    "nodes": [
+      "h2"
+    ],
+
+    "script": "python3 -m http.sever 80"
+  },
+  "client-side": {
+    "type": "independent",
+    "nodes": [
+      "h1", "h3", "h4"
+    ],
+    "script": "python3 web-app-python-client.py",
+    "params": [
+      {
+        "param-name": "idle-base",
+        "param-value": "10"
+      },
+      {
+        "param-name": "interval-base",
+        "param-value": "10"
+      },
+      {
+        "param-name": "url",
+        "param-value": "http://192.168.1.2"
+      }
+    ]
+  }
+}

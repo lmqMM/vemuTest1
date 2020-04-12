@@ -1,0 +1,90 @@
+{
+  "name": "799ffffc-8eb7-48a9-883e-60902ecba042",
+  "status": "STATUS_SAVED",
+  "controllers": {},
+  "switches": {},
+  "hosts": {
+    "h1": {
+      "name": "h1",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.1/24",
+      "x": 210,
+      "y": 166,
+      "image": "topostack/host"
+    },
+    "h2": {
+      "name": "h2",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.2/24",
+      "x": 212,
+      "y": 277,
+      "image": "topostack/host"
+    },
+    "h3": {
+      "name": "h3",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.3/24",
+      "x": 219,
+      "y": 376,
+      "image": "topostack/host"
+    },
+    "h4": {
+      "name": "h4",
+      "nodeType": "host",
+      "hostType": "ubuntu",
+      "subType": "ubuntu",
+      "ip": "192.168.1.4/24",
+      "x": 702,
+      "y": 232,
+      "image": "topostack/host"
+    }
+  },
+  "vnfs": {
+    "shaper1": {
+      "name": "shaper1",
+      "nodeType": "vnf",
+      "vnfType": "shaper",
+      "subType": "shaper",
+      "x": 448,
+      "y": 246,
+      "image": "vnf/shaper"
+    }
+  },
+  "routers": {},
+  "links": {
+    "l2": {
+      "name": "l2",
+      "source": "h1",
+      "sourceType": "host",
+      "target": "shaper1---inf1",
+      "targetType": "vnf"
+    },
+    "l4": {
+      "name": "l4",
+      "source": "h2",
+      "sourceType": "host",
+      "target": "shaper1---inf1",
+      "targetType": "vnf"
+    },
+    "l6": {
+      "name": "l6",
+      "source": "h3",
+      "sourceType": "host",
+      "target": "shaper1---inf1",
+      "targetType": "vnf"
+    },
+    "l8": {
+      "name": "l8",
+      "source": "shaper1---inf2",
+      "sourceType": "vnf",
+      "target": "h4",
+      "targetType": "host"
+    }
+  }
+}
